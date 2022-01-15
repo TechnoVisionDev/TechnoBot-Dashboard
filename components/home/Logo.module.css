@@ -1,0 +1,96 @@
+.logo {
+    height: 13rem;
+    width: 13rem;
+    border: 5px solid #2f353a;
+    border-radius: 50%;
+    display: block;
+    margin: 7rem auto 0 auto;
+}
+
+.large-header,
+.small-header {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 3rem;
+    display: inline;
+}
+
+.small-header {
+    display: none;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.main > div {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.add-button {
+    position: relative;
+    padding-left: 3rem;
+    font-weight: 400;
+    font-size: 1.2rem;
+    background: linear-gradient(90deg,#5779ff,#57a5ff);
+    border: 0;
+    border-radius: 8px;
+    margin-right: 1rem;
+    height: 3.5rem;
+    width: 14.5rem;
+    cursor: pointer; 
+}
+
+.icon {
+    position: absolute;
+    left: 8%;
+    top: 25%;
+    font-size: 32px;
+}
+
+.dashboard-button {
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 1.2rem;
+    border: 4px solid #5779ff;
+    border-radius: 8px;
+    margin-right: 1rem;
+    height: 3.5rem;
+    width: 10rem;
+    cursor: pointer;
+}
+
+.add-button:hover,
+.dashboard-button:hover {
+    opacity: 80%;
+}
+
+@media screen and (max-width: 600px)  {
+    .buttons {
+        flex-direction: column;
+    }
+
+    .dashboard-button {
+        margin-top: 1rem;
+        height: 3.5rem;
+        width: 14.5rem;
+    }
+
+    .large-header {
+        display: none;
+    }
+
+    .small-header {
+        display: inline;
+        font-size: 3.5rem;
+    }
+}

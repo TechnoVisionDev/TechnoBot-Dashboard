@@ -1,0 +1,75 @@
+.navbar {
+    background: linear-gradient(90deg,#5779ff,#57a5ff);
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+    height: 55px;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: calc(100% - 10px);
+}
+
+.links {
+    padding-inline-start: 30px;
+}
+
+.links li,
+.icon-links li {
+    display: inline-block;
+    font-size: 0.85rem;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.icon-links {
+    display: none;
+}
+
+.home-link {
+    margin-right: 1.9rem !important;
+}
+
+.home {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.login-button {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+    background-color: transparent;
+    border: 2px solid #fefefe;
+    border-radius: 20px;
+    height: 37px;
+    width: 85px;
+    font-size: 0.9rem;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background: linear-gradient(90deg,#5779ff,#57a5ff);
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 0.85rem;
+    margin-right: 3.5px;
+}
+
+@media screen and (max-width: 800px)  {
+    .icon {
+        font-size: 1.1rem;
+        margin-right: 15px;
+    }
+
+    .icon-links {
+        display: inline-block;
+        padding-inline-start: 20px;
+    }
+
+    .links {
+        display: none;
+    }
+}

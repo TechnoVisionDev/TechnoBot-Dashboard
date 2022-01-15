@@ -1,0 +1,17 @@
+
+   
+.footer {
+    width: 100%;
+    background-color: #2f353a;
+}
+
+.footer > span {
+    z-index: 9999;
+    position: absolute;
+    padding-top: 13%;
+    padding-left: 5%;
+}
+
+.footer > svg {
+    z-index: -1;
+}
