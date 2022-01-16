@@ -6,7 +6,7 @@ import { faHome, faPlus, faBook } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Navbar.module.css';
 
-const DISCORD_OAUTH2 : string = `https://discord.com/api/oauth2/authorize?client_id=795534384367009802&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fservers&response_type=code&scope=email%20identify%20guilds`;
+const DISCORD_OAUTH2 : string = "https://discord.com/api/oauth2/authorize?client_id=795534384367009802&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2F&response_type=code&scope=identify%20email%20guilds";
 
 function Navbar() {
     return (
