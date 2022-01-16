@@ -1,9 +1,8 @@
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 
 import styles from './Logo.module.css';
-
-import Image from 'next/image';
 
 function Logo() {
     return (

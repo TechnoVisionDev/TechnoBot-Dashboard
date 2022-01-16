@@ -1,15 +1,19 @@
+import Link from 'next/link';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faPatreon} from '@fortawesome/free-brands-svg-icons';
 import { faHome, faPlus, faBook } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Navbar.module.css';
 
+const DISCORD_OAUTH2 : string = `https://discord.com/api/oauth2/authorize?client_id=795534384367009802&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fservers&response_type=code&scope=email%20identify%20guilds`;
+
 function Navbar() {
     return (
         <nav className={styles.navbar}>
             <ul className={styles.links}>
                 <li className={styles['home-link']}>
-                    <a href="#top" className={styles.home}>TechnoBot</a>
+                    <a href="/" className={styles.home}>TechnoBot</a>
                 </li>
                 <li>
                     <FontAwesomeIcon className={styles.icon} icon={faPlus} />
@@ -55,7 +59,9 @@ function Navbar() {
                     </a>
                 </li>
             </ul>
-            <button className={styles['login-button']}>Login</button>
+            <Link href={DISCORD_OAUTH2}>
+                <button className={styles['login-button']}>Login</button>
+            </Link>
         </nav>
     );
 }
