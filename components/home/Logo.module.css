@@ -3,8 +3,9 @@
     width: 13rem;
     border: 5px solid #2f353a;
     border-radius: 50%;
-    display: block;
     margin: 7rem auto 0 auto;
+    position: relative;
+    overflow: hidden;
 }
 
 .large-header,

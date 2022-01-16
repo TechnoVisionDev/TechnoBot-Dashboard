@@ -3,10 +3,14 @@ import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 
 import styles from './Logo.module.css';
 
+import Image from 'next/image';
+
 function Logo() {
     return (
         <main className={styles.main}>
-            <img src="/assets/home/logo.png" alt="TechnoBot logo" className={styles.logo} />
+            <div className={styles.logo}>
+                <Image src="/assets/home/logo.png" alt="TechnoBot logo" layout="fill" />
+            </div>
             <h1 className={styles['large-header']}>The Ultimate Discord Bot</h1>
             <h1 className={styles['small-header']}>TechnoBot</h1>
             <div className={styles.buttons}>
