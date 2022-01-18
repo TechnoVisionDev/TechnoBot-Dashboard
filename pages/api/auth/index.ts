@@ -10,7 +10,7 @@ const handler = nextConnect<NextApiRequest, NextApiResponse>();
 handler.get(async (req, res) => {
     // Get application data
     const { code } = req.query;
-    if (!code) { res.status(400).end("400: Bad request!"); }
+    if (!code) { res.redirect(307, '/error'); }
     const authHeaders = { headers : {'Content-Type': 'application/x-www-form-urlencoded'} };
     const payload = buildOAuth2CredentialsRequest(code.toString());
 
