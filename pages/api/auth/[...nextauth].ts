@@ -5,7 +5,7 @@ import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "../../../lib/mongodb";
 
 export default NextAuth({
-    secret: 'V3pUypb/G7sxy00VOf9nsUAeYKhYm8FtBvPQznrJpEk=',
+    secret: process.env.NEXTAUTH_SECRET,
     adapter: MongoDBAdapter(clientPromise),
     providers: [
         DiscordProvider({
@@ -13,6 +13,5 @@ export default NextAuth({
             clientSecret: process.env.DISCORD_OAUTH_SECRET,
             authorization: { params: { scope: 'identify email guilds' } },
         }),
-        // ...add more providers here
     ],
 });

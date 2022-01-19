@@ -1,8 +1,16 @@
 import type { NextPage } from 'next';
+import { useSession, signIn } from 'next-auth/react';
 
 import Navbar from '../components/layout/Navbar';
 
-const ServerPage: NextPage = () => {
+const ServersPage: NextPage = () => {
+  useSession({
+    required: true,
+    onUnauthenticated() {
+      signIn('discord');
+    }
+  });
+
   return (
     <>
         <header>
@@ -13,4 +21,4 @@ const ServerPage: NextPage = () => {
   );
 }
 
-export default ServerPage;
+export default ServersPage;
