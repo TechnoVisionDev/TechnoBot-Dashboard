@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useSession, signIn } from 'next-auth/react';
 
-import Navbar from '../components/layout/Navbar';
+import Navbar from '../components/layout/navbar/Navbar';
 
 const ServersPage: NextPage = () => {
   useSession({

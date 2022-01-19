@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 
-import Navbar from '../components/layout/Navbar';
+import Navbar from '../components/layout/navbar/Navbar';
 
 const Error: NextPage = () => {
   return (
