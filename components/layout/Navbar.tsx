@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faPatreon} from '@fortawesome/free-brands-svg-icons';
@@ -6,9 +6,12 @@ import { faHome, faPlus, faBook } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Navbar.module.css';
 
-const DISCORD_OAUTH2 : string = "https://discord.com/api/oauth2/authorize?client_id=795534384367009802&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2F&response_type=code&scope=identify%20email%20guilds";
-
 function Navbar() {
+
+    const { data: session, status } = useSession();
+    const loginButton = <button className={styles['login-button']} onClick={() => signIn('discord', {callbackUrl: `${window.location.origin}/servers`})}>Login</button>;
+    const logoutButton = <button className={styles['login-button']} onClick={() => signOut({callbackUrl: window.location.origin})}>Logout</button>
+
     return (
         <nav className={styles.navbar}>
             <ul className={styles.links}>
@@ -59,9 +62,7 @@ function Navbar() {
                     </a>
                 </li>
             </ul>
-            <Link href={DISCORD_OAUTH2}>
-                <button className={styles['login-button']}>Login</button>
-            </Link>
+            {status !== "authenticated" ? loginButton : logoutButton}
         </nav>
     );
 }
