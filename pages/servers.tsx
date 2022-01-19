@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import Head from 'next/head';
 import { useSession, signIn } from 'next-auth/react';
 
 import Navbar from '../components/layout/Navbar';
@@ -13,10 +14,13 @@ const ServersPage: NextPage = () => {
 
   return (
     <>
-        <header>
-          <Navbar />
-        </header>
-        <h1 style={{marginTop: '250px'}}>Server Selector</h1>
+      <Head>
+        <title>TechnoBot - Server Selector</title>
+      </Head>
+      <header>
+        <Navbar />
+      </header>
+      <h1 style={{marginTop: '250px'}}>Server Selector</h1>
     </>
   );
 }

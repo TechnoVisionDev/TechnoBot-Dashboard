@@ -9,13 +9,13 @@ import Footer from '../components/layout/Footer';
 const Home: NextPage = () => {
   return (
     <>
-        <header>
-          <Navbar />
-        </header>
-        <Logo />
-        <Waves />
-        <FeaturesList />
-        <Footer />
+      <header>
+        <Navbar />
+      </header>
+      <Logo />
+      <Waves />
+      <FeaturesList />
+      <Footer />
     </>
   );
 }
