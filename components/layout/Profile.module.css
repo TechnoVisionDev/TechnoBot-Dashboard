@@ -1,13 +1,48 @@
+.dropdown {
+    margin-left: auto;
+    font-size: 15px;
+    position: relative;
+    display: inline-block;
+}
+
 .profile {
     display: flex;
     align-items: center;
-    margin-left: auto;
     cursor: pointer;
     gap: 0.8rem;
-    font-size: 15px;
 }
 
 .avatar {
     border-radius: 50%;
     width: 2.35rem;
+}
+
+.menu {
+    visibility: visible;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+    right: 0;
+    width: 100%;
+    background-color: #2f353a;
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    padding-left: 0.8rem;
+}
+
+.button:hover {
+    background-color: #57a5ff;
+}
+
+.button > p {
+    margin-left: 0.5rem;
 }
