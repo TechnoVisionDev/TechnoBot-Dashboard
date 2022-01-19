@@ -1,0 +1,13 @@
+.profile {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    cursor: pointer;
+    gap: 0.8rem;
+    font-size: 15px;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 2.35rem;
+}

@@ -1,17 +1,20 @@
 import Link from 'next/link';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signIn } from 'next-auth/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faPatreon} from '@fortawesome/free-brands-svg-icons';
 import { faHome, faPlus, faBook } from '@fortawesome/free-solid-svg-icons';
 
+import Profile from './Profile';
 import styles from './Navbar.module.css';
 
 function Navbar() {
 
     const { data: session, status } = useSession();
+    const name : string = session?.user?.name!;
+    const avatar : string = session?.user?.image!;
+
     const loginButton = <button className={styles['login-button']} onClick={() => signIn('discord', {callbackUrl: `${window.location.origin}/servers`})}>Login</button>;
-    const logoutButton = <button className={styles['login-button']} onClick={() => signOut({callbackUrl: window.location.origin})}>Logout</button>
 
     return (
         <nav className={styles.navbar}>
@@ -65,7 +68,7 @@ function Navbar() {
                     </a>
                 </li>
             </ul>
-            {status !== "authenticated" ? loginButton : logoutButton}
+            {status !== "authenticated" ? loginButton : <Profile name={name} avatar={avatar}  />}
         </nav>
     );
 }
