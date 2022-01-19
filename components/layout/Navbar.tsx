@@ -23,7 +23,7 @@ function Navbar() {
                 </li>
                 <li>
                     <FontAwesomeIcon className={styles.icon} icon={faPlus} />
-                    <a href="https://discord.com/api/oauth2/authorize?client_id=795534384367009802&permissions=4294962807&redirect_uri=https%3A%2F%2Fcarl.gg%2F&scope=bot" target="_blank" rel="noopener noreferrer">Invite</a>
+                    <a href={process.env.DISCORD_BOT_INVITE} target="_blank" rel="noopener noreferrer">Invite</a>
                 </li>
                 <li>
                     <FontAwesomeIcon className={styles.icon} icon={faDiscord} />
@@ -45,7 +45,7 @@ function Navbar() {
                     </a>
                 </li>
                 <li>
-                    <a href="https://discord.com/api/oauth2/authorize?client_id=795534384367009802&permissions=4294962807&redirect_uri=https%3A%2F%2Fcarl.gg%2F&scope=bot" target="_blank" rel="noopener noreferrer">
+                    <a href={process.env.DISCORD_BOT_INVITE} target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon className={styles.icon} icon={faPlus} />
                     </a>
                 </li>
