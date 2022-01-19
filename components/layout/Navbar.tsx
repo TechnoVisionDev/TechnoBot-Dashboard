@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,7 +17,9 @@ function Navbar() {
         <nav className={styles.navbar}>
             <ul className={styles.links}>
                 <li className={styles['home-link']}>
-                    <a href="/" className={styles.home}>TechnoBot</a>
+                    <Link href='/'>
+                        <a className={styles.home}>TechnoBot</a>
+                    </Link>
                 </li>
                 <li>
                     <FontAwesomeIcon className={styles.icon} icon={faPlus} />
