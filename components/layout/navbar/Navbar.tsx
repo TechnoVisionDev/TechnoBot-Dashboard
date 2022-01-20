@@ -1,19 +1,36 @@
+import Link from 'next/link';
+import { useSession, signIn, getSession } from 'next-auth/react';
+import { GetServerSideProps } from 'next';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faPatreon} from '@fortawesome/free-brands-svg-icons';
 import { faHome, faPlus, faBook } from '@fortawesome/free-solid-svg-icons';
 
+import Profile from './Profile';
 import styles from './Navbar.module.css';
 
 function Navbar() {
+    const { data: session, status } = useSession()
+    const name : string = session?.user?.name!;
+    const avatar : string = session?.user?.image!;
+
+    const loginHandler = () => {
+        signIn('discord', {callbackUrl: `${window.location.origin}/servers`});
+    }
+
+    const loginButton = <button className={styles['login-button']} onClick={loginHandler}>Login</button>;
+
     return (
         <nav className={styles.navbar}>
             <ul className={styles.links}>
                 <li className={styles['home-link']}>
-                    <a href="#top" className={styles.home}>TechnoBot</a>
+                    <Link href='/'>
+                        <a className={styles.home}>TechnoBot</a>
+                    </Link>
                 </li>
                 <li>
                     <FontAwesomeIcon className={styles.icon} icon={faPlus} />
-                    <a href="https://discord.com/api/oauth2/authorize?client_id=795534384367009802&permissions=4294962807&redirect_uri=https%3A%2F%2Fcarl.gg%2F&scope=bot" target="_blank" rel="noopener noreferrer">Invite</a>
+                    <a href={process.env.DISCORD_BOT_INVITE} target="_blank" rel="noopener noreferrer">Invite</a>
                 </li>
                 <li>
                     <FontAwesomeIcon className={styles.icon} icon={faDiscord} />
@@ -35,7 +52,7 @@ function Navbar() {
                     </a>
                 </li>
                 <li>
-                    <a href="https://discord.com/api/oauth2/authorize?client_id=795534384367009802&permissions=4294962807&redirect_uri=https%3A%2F%2Fcarl.gg%2F&scope=bot" target="_blank" rel="noopener noreferrer">
+                    <a href={process.env.DISCORD_BOT_INVITE} target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon className={styles.icon} icon={faPlus} />
                     </a>
                 </li>
@@ -55,9 +72,17 @@ function Navbar() {
                     </a>
                 </li>
             </ul>
-            <button className={styles['login-button']}>Login</button>
+            {status !== 'authenticated' ? loginButton : <Profile name={name} avatar={avatar}  />}
         </nav>
     );
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    return {
+        props: {
+            session: await getSession(context)
+        },
+    }
 }
 
 export default Navbar;
