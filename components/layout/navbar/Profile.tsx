@@ -23,17 +23,17 @@ const Profile = ({ name, avatar }: Props) => {
         <div className={styles.dropdown} onClick={clickHandler}>
             <div className={styles.profile}>
                 <p>{name}</p>
-                <img className={styles.avatar} src={avatar} />
+                <img className={styles.avatar} src={avatar} alt="Account profile picture" />
                 <FontAwesomeIcon icon={faCaretDown} />
             </div>
             <div className={`${styles.menu} ${!isClicked ? styles.hidden : ''}`}>
-                <Link href="/servers">
+                <Link href="/servers" passHref>
                     <div className={styles.button}>
                         <FontAwesomeIcon icon={faServer} />
                         <p>Servers</p>
                     </div>
                 </Link>
-                <Link href="/premium">
+                <Link href="/premium" passHref>
                     <div className={styles.button}>
                         <FontAwesomeIcon icon={faGem} />
                         <p>Premium</p>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { useSession, signIn } from 'next-auth/react';
+import { useSession, signIn, getSession } from 'next-auth/react';
+import { GetServerSideProps } from 'next';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faPatreon} from '@fortawesome/free-brands-svg-icons';
@@ -9,12 +10,15 @@ import Profile from './Profile';
 import styles from './Navbar.module.css';
 
 function Navbar() {
-
-    const { data: session, status } = useSession();
+    const { data: session, status } = useSession()
     const name : string = session?.user?.name!;
     const avatar : string = session?.user?.image!;
 
-    const loginButton = <button className={styles['login-button']} onClick={() => signIn('discord', {callbackUrl: `${window.location.origin}/servers`})}>Login</button>;
+    const loginHandler = () => {
+        signIn('discord', {callbackUrl: `${window.location.origin}/servers`});
+    }
+
+    const loginButton = <button className={styles['login-button']} onClick={loginHandler}>Login</button>;
 
     return (
         <nav className={styles.navbar}>
@@ -68,9 +72,17 @@ function Navbar() {
                     </a>
                 </li>
             </ul>
-            {status !== "authenticated" ? loginButton : <Profile name={name} avatar={avatar}  />}
+            {status !== 'authenticated' ? loginButton : <Profile name={name} avatar={avatar}  />}
         </nav>
     );
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    return {
+        props: {
+            session: await getSession(context)
+        },
+    }
 }
 
 export default Navbar;
