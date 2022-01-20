@@ -93,6 +93,9 @@ Below is a comprehensive list of the frameworks and libraries used to build the 
 * [React](https://reactjs.org/)
 * [Node.js](https://nodejs.org/en/)
 * [Next.js](https://nextjs.org/)
+* [NextAuth](https://next-auth.js.org/)
+* [NextConnect](https://www.npmjs.com/package/next-connect)
+* [MongoDB](https://www.mongodb.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -115,11 +118,12 @@ _Below are the necessary steps needed to run this project._
    ```sh
    git clone https://github.com/TechnoVisionDev/TechnoBot-Dashboard.git
    ```
-5. Navigate to the project directory and install dependencies:
+2. Navigate to the project directory and install dependencies:
    ```sh
    npm install
    ```
-6. You can now run the server using this command:
+4. Create a `.env.local` file and populate it with all the variables in `.env.local.example`
+3. You can now run the server using this command:
    ```sh
    npm run dev
    ```
