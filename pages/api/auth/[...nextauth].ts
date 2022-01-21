@@ -14,4 +14,9 @@ export default NextAuth({
             authorization: { params: { scope: 'identify email guilds' } },
         }),
     ],
+    callbacks: {
+        async session({ session, user, token }) {
+            return session;
+        }
+    }
 });
