@@ -9,7 +9,7 @@ function GuildList(props) {
       items.push(<p className={styles.loading}>Loading...</p>);
     } else {
       for (var i = 0; i < props.data['length']; i++) {
-        items.push(<Guild data={props.data[i]} />);
+        items.push(<Guild key={i} data={props.data[i]} />);
       }
     }
 

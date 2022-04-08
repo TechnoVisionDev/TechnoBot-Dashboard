@@ -1,7 +1,11 @@
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+
 import styles from './Guild.module.css';
 
 function Guild(props) {
 
+    const router = useRouter();
     const data = props.data;
 
     let imageURL = `https://cdn.discordapp.com/icons/${data['id']}/${data['icon']}.png`;
@@ -11,7 +15,9 @@ function Guild(props) {
 
     return (
         <div className={styles.guild}>
-            <img className={styles.icon} src={imageURL} alt={`${data['name']} Guild Icon`} />
+            <Link href={`/dashboard/${data['id']}/settings`}>
+                <img className={styles.icon} src={imageURL} alt={`${data['name']} Guild Icon`} />
+            </Link>
             <p>{data['name']}</p>
         </div>
     );
