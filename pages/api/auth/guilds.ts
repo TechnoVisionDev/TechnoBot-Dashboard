@@ -4,6 +4,7 @@ import axios from "axios";
 import { getSession } from "next-auth/react";
 
 import { connectToDatabase } from "../../../lib/mongodb";
+import { Session } from "next-auth";
 
 /**
  * Retrieves a list of guilds that the authenticated user owns.
@@ -19,7 +20,12 @@ handler.get(async (req, res) => {
     // TODO: Move this to a middelware
     const session = await getSession({ req });
     if (!session) return res.status(401).send({'error': '401: Unauthorized'});
+    
+    const ownedServers = await retrieveOwnedGuilds(session);
+    res.send(ownedServers);
+});
 
+export const retrieveOwnedGuilds = async (session: Session) => {
     // Get access token from database
     const email = session.user?.email;
     const { db } = await connectToDatabase();
@@ -33,7 +39,7 @@ handler.get(async (req, res) => {
     // Request guilds from Discord using access token
     const headers = {headers: {'Authorization' : `Bearer ${accessToken}`}};
     const { data } = await axios.get('https://discord.com/api/v8/users/@me/guilds', headers);
-    
+
     // Filter out servers the user does not own
     const ownedServers = [];
     for (let server of data) {
@@ -41,8 +47,7 @@ handler.get(async (req, res) => {
             ownedServers.push(server);
         }
     }
-
-    res.send(ownedServers);
-});
+    return ownedServers;
+}
 
 export default handler;
