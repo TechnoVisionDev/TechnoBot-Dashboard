@@ -1,0 +1,14 @@
+.guild {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    border-radius: 50%;
+    width: 9rem;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
