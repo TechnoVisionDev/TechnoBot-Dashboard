@@ -2,14 +2,19 @@ import Guild from './Guild';
 
 import styles from './GuildList.module.css';
 
-function GuildList(props) {
+type Props = {
+  data: [];
+  isLoading: boolean;
+}
+
+function GuildList({data, isLoading}: Props) {
 
     const items = [];
-    if (props.isLoading) {
+    if (isLoading) {
       items.push(<p className={styles.loading}>Loading...</p>);
     } else {
-      for (var i = 0; i < props.data['length']; i++) {
-        items.push(<Guild key={i} data={props.data[i]} />);
+      for (var i = 0; i < data['length']; i++) {
+        items.push(<Guild key={i} data={data[i]} />);
       }
     }
 

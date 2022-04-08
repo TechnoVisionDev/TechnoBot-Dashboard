@@ -3,10 +3,9 @@ import Link from 'next/link';
 
 import styles from './Guild.module.css';
 
-function Guild(props) {
+type Props = { data: any; }
 
-    const router = useRouter();
-    const data = props.data;
+function Guild({data}: Props) {
 
     let imageURL = `https://cdn.discordapp.com/icons/${data['id']}/${data['icon']}.png`;
     if (!data['icon']) {
