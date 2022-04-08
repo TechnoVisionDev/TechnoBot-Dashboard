@@ -32,7 +32,17 @@ const ServersPage: NextPage = () => {
   } else {
     for (var i = 0; i < data['length']; i++) {
       const guild = data[i];
-      items.push(<p>{guild['name']}</p>);
+      let imageURL = `https://cdn.discordapp.com/icons/${guild['id']}/${guild['icon']}.png`;
+      if (!guild['icon']) {
+        imageURL = 'https://cdn.discordapp.com/embed/avatars/0.png';
+      }
+
+      items.push(
+        <div key={i}>
+          <img src={imageURL} alt={`${guild['name']} Guild Icon`} />
+          <p>{guild['name']}</p>
+        </div>
+      );
     }
   }
 
