@@ -25,6 +25,11 @@ handler.get(async (req, res) => {
     res.send(ownedServers);
 });
 
+/**
+ * Retrieves all of the guilds that the current session user is the owner of.
+ * @param session session of the current user.
+ * @returns a JSON array of guild data.
+ */
 export const retrieveOwnedGuilds = async (session: Session) => {
     // Get access token from database
     const email = session.user?.email;
@@ -48,6 +53,23 @@ export const retrieveOwnedGuilds = async (session: Session) => {
         }
     }
     return ownedServers;
+}
+
+/**
+ * Checks if the TechnoBot bot is a member of a specified guild.
+ * @param guildID ID of the guild to check.
+ * @returns true if bot is in the guild, otherwise false.
+ */
+export const isBotInGuild = async (guildID: string) => {
+    const botID = process.env.DISCORD_OAUTH_CLIENT_ID
+    const botToken = process.env.BOT_TOKEN;
+    const headers = {headers: {'Authorization' : `Bot ${botToken}`}};
+    try {
+        const { data } = await axios.get(`https://discord.com/api/v8/guilds/${guildID}/members/${botID}`, headers);
+    } catch (e) {
+        return false;
+    }
+    return true;
 }
 
 export default handler;
