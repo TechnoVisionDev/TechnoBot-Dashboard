@@ -18,3 +18,9 @@
     gap: 2rem;
     font-size: 18px;
 }
+
+@media screen and (max-width: 600px)  {
+    .container {
+        flex-direction: column;
+    }
+}
