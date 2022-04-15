@@ -34,7 +34,7 @@ function Navbar() {
                 </li>
                 <li>
                     <FontAwesomeIcon className={styles.icon} icon={faPlus} />
-                    <a href={process.env.DISCORD_BOT_INVITE} target="_blank" rel="noopener noreferrer">Invite</a>
+                    <a href={process.env.NEXT_PUBLIC_DISCORD_BOT_INVITE} target="_blank" rel="noopener noreferrer">Invite</a>
                 </li>
                 <li>
                     <FontAwesomeIcon className={styles.icon} icon={faDiscord} />
@@ -51,9 +51,9 @@ function Navbar() {
             </ul>
             <ul className={styles['icon-links']}>
                 <li>
-                    <a href="#top" className={styles.home}>
+                    <Link href='/'>
                         <FontAwesomeIcon className={styles.icon} icon={faHome} />
-                    </a>
+                    </Link>
                 </li>
                 <li>
                     <a href={process.env.DISCORD_BOT_INVITE} target="_blank" rel="noopener noreferrer">

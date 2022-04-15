@@ -15,7 +15,7 @@ function Logo() {
             <h1 className={styles['large-header']}>The Ultimate Discord Bot</h1>
             <h1 className={styles['small-header']}>TechnoBot</h1>
             <div className={styles.buttons}>
-                <a href="https://discord.com/oauth2/authorize?client_id=795534384367009802&scope=bot&permissions=2088234230" target="_blank" rel="noopener noreferrer">
+                <a href={process.env.NEXT_PUBLIC_DISCORD_BOT_INVITE} target="_blank" rel="noopener noreferrer">
                     <button className={styles['add-button']}>
                         <FontAwesomeIcon className={styles.icon} icon={faDiscord} />
                         &nbsp;Add To Discord
