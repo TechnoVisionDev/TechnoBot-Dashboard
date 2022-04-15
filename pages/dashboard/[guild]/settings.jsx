@@ -48,19 +48,19 @@ export const getServerSideProps = async (context) => {
   if (!isValid) {
     return {
       redirect: {
-        destination: '/servers',
+        destination: '/',
         permanent: false,
       },
     }
   }
 
-  //@ts-ignore
   const hasBot = await isBotInGuild(id);
   if (!hasBot) {
     return {
       redirect: {
-        destination: '/api/invite',
-        permanent: false,
+        source: '/servers',
+        destination: `https://discord.com/oauth2/authorize?client_id=795534384367009802&scope=bot&permissions=2088234230&guild_id=${id}&response_type=code&redirect_uri=http://localhost:3000/api/auth/server_auth`,
+        permanent: false
       },
     }
   }

@@ -3,7 +3,6 @@ import axios from "axios";
 import { getSession } from "next-auth/react";
 
 import { connectToDatabase } from "../../../lib/mongodb";
-import { Session } from "next-auth";
 
 /**
  * Retrieves a list of guilds that the authenticated user owns.
