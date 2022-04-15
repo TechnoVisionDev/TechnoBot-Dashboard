@@ -1,12 +1,11 @@
 import Head from 'next/head';
 import { getSession } from 'next-auth/react';
-import { NextPage, GetServerSideProps } from 'next';
 
 import Navbar from '../../../components/layout/navbar/Navbar';
 import { useRouter } from 'next/router';
 import { retrieveOwnedGuilds, isBotInGuild } from '../../api/auth/guilds';
 
-const SettingsPage: NextPage = () => {
+const SettingsPage = () => {
 
   const router = useRouter();
   const { guild } = router.query;
@@ -24,7 +23,7 @@ const SettingsPage: NextPage = () => {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps = async (context) => {
   // Check for authentication
   const session = await getSession(context);
   if (!session) {
@@ -55,6 +54,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
   }
 
+  //@ts-ignore
   const hasBot = await isBotInGuild(id);
   if (!hasBot) {
     return {

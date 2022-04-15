@@ -2,12 +2,7 @@ import Guild from './Guild';
 
 import styles from './GuildList.module.css';
 
-type Props = {
-  data: [];
-  isLoading: boolean;
-}
-
-function GuildList({data, isLoading}: Props) {
+function GuildList({data, isLoading}) {
 
     const items = [];
     if (isLoading) {

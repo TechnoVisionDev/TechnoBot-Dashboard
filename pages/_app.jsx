@@ -1,4 +1,3 @@
-import type { AppProps } from 'next/app'
 import Head from 'next/head';
 import { SessionProvider } from "next-auth/react"
 
@@ -8,7 +7,7 @@ config.autoAddCss = false;
 
 import '../styles/globals.css'
 
-function MyApp({Component, pageProps: { session, ...pageProps }}: AppProps) {
+function MyApp({Component, pageProps: { session, ...pageProps }}) {
   return (
     <SessionProvider session={session}>
       <Head>

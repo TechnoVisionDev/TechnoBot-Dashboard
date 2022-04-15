@@ -1,11 +1,8 @@
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import styles from './Guild.module.css';
 
-type Props = { data: any; }
-
-function Guild({data}: Props) {
+function Guild({data}) {
 
     let imageURL = `https://cdn.discordapp.com/icons/${data['id']}/${data['icon']}.png`;
     if (!data['icon']) {

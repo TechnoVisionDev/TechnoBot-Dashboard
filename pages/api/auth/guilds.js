@@ -1,4 +1,3 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import nextConnect from "next-connect";
 import axios from "axios";
 import { getSession } from "next-auth/react";
@@ -9,7 +8,7 @@ import { Session } from "next-auth";
 /**
  * Retrieves a list of guilds that the authenticated user owns.
  */
-const handler = nextConnect<NextApiRequest, NextApiResponse>({
+const handler = nextConnect({
     onError: (err, req, res, next) => {
         return res.status(500).send({'error': '500: Internal server error'});
       }
@@ -30,7 +29,7 @@ handler.get(async (req, res) => {
  * @param session session of the current user.
  * @returns a JSON array of guild data.
  */
-export const retrieveOwnedGuilds = async (session: Session) => {
+export const retrieveOwnedGuilds = async (session) => {
     // Get access token from database
     const email = session.user?.email;
     const { db } = await connectToDatabase();
@@ -60,7 +59,7 @@ export const retrieveOwnedGuilds = async (session: Session) => {
  * @param guildID ID of the guild to check.
  * @returns true if bot is in the guild, otherwise false.
  */
-export const isBotInGuild = async (guildID: string) => {
+export const isBotInGuild = async (guildID) => {
     const botID = process.env.DISCORD_OAUTH_CLIENT_ID
     const botToken = process.env.BOT_TOKEN;
     const headers = {headers: {'Authorization' : `Bot ${botToken}`}};

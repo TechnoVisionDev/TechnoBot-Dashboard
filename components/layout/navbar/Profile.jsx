@@ -7,12 +7,7 @@ import { faCaretDown, faServer, faSignOutAlt, faGem } from '@fortawesome/free-so
 
 import styles from './Profile.module.css';
 
-type Props = {
-    name: string;
-    avatar: string;
-};
-
-const Profile = ({ name, avatar }: Props) => {
+const Profile = ({ name, avatar }) => {
     const [isClicked, setClicked] = useState(false);
 
     const clickHandler = () => {

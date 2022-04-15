@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useSession, signIn, getSession } from 'next-auth/react';
-import { GetServerSideProps } from 'next';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faPatreon} from '@fortawesome/free-brands-svg-icons';
@@ -10,9 +9,14 @@ import Profile from './Profile';
 import styles from './Navbar.module.css';
 
 function Navbar() {
-    const { data: session, status } = useSession()
-    const name : string = session?.user?.name!;
-    const avatar : string = session?.user?.image!;
+    const { data: session, status } = useSession();
+
+    let name = "";
+    let avatar = "";
+    if (session) {
+        name = session.user.name;
+        avatar = session.user.image;
+    }
 
     const loginHandler = () => {
         signIn('discord', {callbackUrl: `${window.location.origin}/servers`});
@@ -77,7 +81,7 @@ function Navbar() {
     );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps = async (context) => {
     return {
         props: {
             session: await getSession(context)

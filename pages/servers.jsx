@@ -1,4 +1,3 @@
-import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useSession, signIn } from 'next-auth/react';
 import { useState, useEffect } from 'react';
@@ -6,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Navbar from '../components/layout/navbar/Navbar';
 import GuildList from '../components/servers/GuildList';
 
-const ServersPage: NextPage = () => {
+const ServersPage = () => {
   useSession({
     required: true,
     onUnauthenticated() {
