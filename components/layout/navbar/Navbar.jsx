@@ -42,11 +42,11 @@ function Navbar() {
                 </li>
                 <li>
                     <FontAwesomeIcon className={styles.icon} icon={faPatreon} />
-                    <a href="https://patreon.com" target="_blank" rel="noopener noreferrer">Premium</a>
+                    <a href="https://www.patreon.com/TechnoVision" target="_blank" rel="noopener noreferrer">Premium</a>
                 </li>
                 <li>
                     <FontAwesomeIcon className={styles.icon} icon={faBook} />
-                    <a href="https://www.makeuseof.com/tag/4-sites-create-wikipedialike-website/" target="_blank" rel="noopener noreferrer">Docs</a>
+                    <a href="https://github.com/TechnoVisionDev/TechnoBot" target="_blank" rel="noopener noreferrer">Source</a>
                 </li>
             </ul>
             <ul className={styles['icon-links']}>
@@ -66,12 +66,12 @@ function Navbar() {
                     </a>
                 </li>
                 <li>
-                    <a href="https://patreon.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.patreon.com/TechnoVision" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon className={styles.icon} icon={faPatreon} />
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.makeuseof.com/tag/4-sites-create-wikipedialike-website/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/TechnoVisionDev/TechnoBot" target="_blank" rel="noopener noreferrer">
                         <FontAwesomeIcon className={styles.icon} icon={faBook} />
                     </a>
                 </li>

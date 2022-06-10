@@ -1,7 +1,6 @@
 .header {
     margin-top: 250px;
-    display: flex;
-    justify-content: center;
+    text-align: center;
     font-size: 50px;
     margin-bottom: 4rem;
 }

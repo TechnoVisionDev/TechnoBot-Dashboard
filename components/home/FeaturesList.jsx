@@ -74,15 +74,6 @@ function FeaturesList() {
             </div>
             <div className={styles.feature}>
                 <div>
-                    <h2>Reaction Roles</h2>
-                    <p>Set highly customizable reaction roles for your server! Reaction roles can make
-                        even the most complex servers easy to navigate and highly professional.
-                    </p>
-                </div>
-                <img src="/assets/home/reaction roles.png" alt="reaction roles interface" />
-            </div>
-            <div className={styles.feature}>
-                <div>
                     <h2>Ticket System</h2>
                     <p>Create a ticket system that allows your members to communicate with staff
                         quickly and privately. Perfect for customer support, ban appeals, or general

@@ -46,3 +46,13 @@
 .button > p {
     margin-left: 0.5rem;
 }
+
+@media screen and (max-width: 430px)  {
+    .username {
+        display: none;
+    }
+
+    .menu {
+        margin-top: 10px;
+    }
+}
