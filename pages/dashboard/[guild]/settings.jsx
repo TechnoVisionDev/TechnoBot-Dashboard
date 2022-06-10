@@ -59,7 +59,7 @@ export const getServerSideProps = async (context) => {
     return {
       redirect: {
         source: '/servers',
-        destination: `https://discord.com/oauth2/authorize?client_id=795534384367009802&scope=bot&permissions=2088234230&guild_id=${id}&response_type=code&redirect_uri=http://localhost:3000/api/auth/server_auth`,
+        destination: process.env.NEXT_PUBLIC_DISCORD_BOT_INVITE + `&guild_id=${id}&response_type=code&redirect_uri=` + process.env.NEXTAUTH_URL + `/api/auth/server_auth`,
         permanent: false
       },
     }
