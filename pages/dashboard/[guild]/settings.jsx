@@ -18,7 +18,8 @@ const SettingsPage = () => {
       <header>
         <Navbar />
       </header>
-      <h1 style={{marginTop: '250px'}}>Dashboard: {guild}</h1>
+      <h1 style={{fontSize: '45px', marginTop: '250px', textAlign: 'center'}}>Dashboard Coming Soon!</h1>
+      <h2 style={{fontSize: '20px', textAlign: 'center'}}>Q4 2022</h2>
     </>
   );
 }
