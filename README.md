@@ -38,7 +38,7 @@
   <p align="center">
     A web dashboard to customize and control TechnoBot!
     <br />
-    <a href="https://technobot.netlify.app/"><strong>Explore this website »</strong></a>
+    <a href="https://technobot.app"><strong>Explore this website »</strong></a>
     <br />
     <br />
     <a href="https://github.com/TechnoVisionDev/TechnoBot-Dashboard/wiki">Visit Wiki</a>
